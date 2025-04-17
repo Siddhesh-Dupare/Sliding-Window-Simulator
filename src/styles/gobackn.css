@@ -1,0 +1,23 @@
+
+:root {
+    --sim-back-color: #23c495;
+}
+
+.box-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 1px solid black;
+
+    .top-wrapper {
+        display: inline-flex;
+        gap: 20px;
+
+        button {
+            padding: 8px 15px;
+            background-color: var(--sim-back-color);
+            border-radius: 20px;
+            color: white;
+        }
+    }
+}
