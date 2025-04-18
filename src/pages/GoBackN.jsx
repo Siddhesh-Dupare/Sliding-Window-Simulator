@@ -1,92 +1,75 @@
-import React, { useEffect, useState } from "react";
- // Make sure to keep your original styles
+import React, { useState } from 'react';
 
-const TOTAL_FRAMES = 10;
-const WINDOW_SIZE = 4;
-const TIMEOUT = 5000;
+import '../styles/gobackn.css';
 
-const GoBackn = () => {
+const totalPackets = 20;
 
-  class GoBackN {
-    constructor(windowSize, totalFrames) {
-      this.windowSize = windowSize;
-      this.totalFrames = totalFrames;
-      this.sentFrames = 0;
-      this.base = 0;
-      this.timer = null;
-      this.timeoutDuration = 3000; // 3 seconds for timeout simulation
-    }
-  
-    sendFrames() {
-      while (this.sentFrames < this.base + this.windowSize && this.sentFrames < this.totalFrames) {
-        console.log(`Sending Frame ${this.sentFrames}`);
-        this.sentFrames++;
-      }
-  
-      this.startTimer();
-    }
-  
-    receiveAck(ack) {
-      if (ack >= this.base && ack < this.sentFrames) {
-        console.log(`Received ACK for Frame ${ack}`);
-        this.base = ack + 1;
-        if (this.base === this.sentFrames) {
-          this.stopTimer();
-        } else {
-          this.startTimer(); // restart timer for unacknowledged frames
-        }
-        this.sendFrames();
-      }
-    }
-  
-    startTimer() {
-      this.stopTimer(); // Stop existing timer
-      this.timer = setTimeout(() => {
-        console.log(`Timeout! Resending frames from ${this.base}`);
-        this.sentFrames = this.base; // Reset to resend from base
-        this.sendFrames();
-      }, this.timeoutDuration);
-    }
-  
-    stopTimer() {
-      if (this.timer) {
-        clearTimeout(this.timer);
-        this.timer = null;
-      }
-    }
-  
-    simulate() {
-      this.sendFrames();
-  
-      // Simulate random ACKs coming in
-      let ackInterval = setInterval(() => {
-        if (this.base >= this.totalFrames) {
-          console.log("All frames sent and acknowledged!");
-          this.stopTimer();
-          clearInterval(ackInterval);
-          return;
-        }
-  
-        // Simulate lost ACKs randomly
-        if (Math.random() < 0.2) {
-          console.log(`ACK for Frame ${this.base} lost!`);
-          return;
-        }
-  
-        this.receiveAck(this.base);
-      }, 1000);
-    }
-  }
-  
-  // Example: window size = 4, total frames = 10
-  const gbn = new GoBackN(4, 10);
-  gbn.simulate();
-  
-
+const GoBackN = () => {
   return (
     <>
+      <div className="wrapper">
+        <div className="btns">
+          <button className="btn send-new-btn">Send New</button>
+          <button className="btn pause-btn">Pause</button>
+          <button className="btn kill-btn">Kill Packet/Ack</button>
+          <button className="btn reset-btn">Reset</button>
+        </div>
+
+        <div className="simulator-wrapper">
+          <div className="wrap sender-wrapper">
+            <div className="packets sender-packets">
+              {[...Array(totalPackets)].map((_, i) => (
+                <div 
+                  key={i}
+                  className="packet"
+                  >
+                    {i}
+                </div>
+              ))}
+            </div>
+
+            <div className="details">
+              <p><b>Sender</b></p>
+            </div>
+          </div>
+
+          <div className="wrap receiver-wrapper">
+            <div className="packets receiver-packets">
+              {[...Array(totalPackets)].map((_, i) => (
+                <div
+                  key={i}
+                  className="packet"
+                  >
+                    {i}
+                </div>
+              ))}
+            </div>
+
+            <div className="details">
+              <p><b>Receiver</b></p>
+            </div>
+          </div>
+        </div>
+
+        <div className="legend-wrapper">
+          <Legend color="bg-cyan-300" label="Packet" />
+          <Legend color="bg-red-500" label="Received" />
+          <Legend color="bg-yellow-300" label="Ack" />
+          <Legend color="bg-blue-400" label="Ack Received" />
+          <Legend color="bg-green-400" label="Selected" />
+        </div>
+      </div>
     </>
   );
-};
+}
 
-export default GoBackn;
+function Legend({ color, label }) {
+  return (
+    <div className="flex items-center gap-2">
+      <div className={`w-4 h-4 rounded-full ${color}`} />
+      <span className="text-sm">{label}</span>
+    </div>
+  );
+}
+
+export default GoBackN;
