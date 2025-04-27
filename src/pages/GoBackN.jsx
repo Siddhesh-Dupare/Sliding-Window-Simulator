@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
 import '../styles/gobackn.css';
 
 import Game from '../components/Game';
