@@ -1,4 +1,3 @@
-
 import './App.css'
 
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom";
@@ -20,14 +19,17 @@ function App() {
         <Route path="go-back-n" element={ <GoBackN /> } />
         <Route path="selective-repeat" element={ <SelectiveRepeat /> } />
       </Route>
-    )
-  )
+    ),
+    {
+      basename: "/Sliding-Window-Simulator", // Correct place for the basename
+    }
+  );
 
   return (
     <>
-      <RouterProvider router={ router } />
+      <RouterProvider router={router} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
