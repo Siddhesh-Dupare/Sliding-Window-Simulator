@@ -21,6 +21,10 @@
         margin-top: 50px;
       }
 
+      .canvas-border {
+        border: 2px solid black;
+      }
+
   </style>
 </head>
 <body>
@@ -31,7 +35,7 @@
       <p><b>Pause:</b> To pause Simulation (Helpfull in Killing pkt/ack)</p>
       <p><b>Reset:</b> Resets Simulation</p>
     </div>
-    <div className="canvas-border">
+    <div class="canvas-border">
       <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
     </div>
   </div>
