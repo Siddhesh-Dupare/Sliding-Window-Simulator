@@ -16,6 +16,7 @@ function Header() {
                     <div className="nav-links">
                         <NavLink to="/" ><li>Home</li></NavLink>
                         <NavLink to="/concept" ><li>Concept</li></NavLink>
+                        <NavLink to="stop-wait" ><li>Stop Wait</li></NavLink>
                         <NavLink to="/go-back-n" ><li>Go Back N</li></NavLink>
                         <NavLink to="/selective-repeat" ><li>Selective Repeat</li></NavLink>
                     </div>

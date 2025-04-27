@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Game = () => {
+const GoBackN_arq = () => {
   return (
     <div>
       <iframe
@@ -14,4 +14,4 @@ const Game = () => {
   );
 };
 
-export default Game;
+export default GoBackN_arq;

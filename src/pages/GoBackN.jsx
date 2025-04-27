@@ -1,13 +1,13 @@
 import React from 'react';
 import '../styles/gobackn.css';
 
-import Game from '../components/Game';
+import GoBackN_arq from '../components/GoBackN_arq';
 
 const GoBackN = () => {
 
   return (
     <>
-      <Game />
+      <GoBackN_arq />
     </>
   );
 };
