@@ -4,7 +4,7 @@ const Game = () => {
   return (
     <div>
       <iframe
-        src="/game.html"
+        src="/Sliding-Window-Simulator/game.html"
         title="Game"
         width="100%"
         height="900"
