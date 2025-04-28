@@ -1,15 +1,13 @@
-import React from 'react';
-import '../styles/gobackn.css';
+import React from "react";
 
 import GoBackN_arq from '../components/GoBackN_arq';
 
 const GoBackN = () => {
-
-  return (
-    <>
-      <GoBackN_arq />
-    </>
-  );
-};
+    return (
+        <>
+            <GoBackN_arq />
+        </>
+    );
+}
 
 export default GoBackN;

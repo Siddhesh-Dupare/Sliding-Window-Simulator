@@ -4,7 +4,7 @@ const GoBackN_arq = () => {
   return (
     <div>
       <iframe
-        src="/Sliding-Window-Simulator/game.html"
+        src="/Sliding-Window-Simulator/Go_Back_N/game.html"
         title="Game"
         width="100%"
         height="900"
