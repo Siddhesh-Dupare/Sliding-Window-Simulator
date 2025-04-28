@@ -1,15 +1,11 @@
 import React from "react";
 
+import StopWait_arq from "../components/StopWait_arq";
+
 const StopWait = () => {
     return (
         <>
-            <iframe
-                src="/Sliding-Window-Simulator/Stop_Wait/game.html"
-                title="Game"
-                width="100%"
-                height="900"
-                frameBorder="0"
-            ></iframe>
+            <StopWait_arq />
         </>
     );
 }
