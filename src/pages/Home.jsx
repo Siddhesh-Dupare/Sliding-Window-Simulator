@@ -9,14 +9,22 @@ const Home = () => {
     return (
         <>
             <div className="box-container">
-                <Box 
+                {/* <Box 
                     title="Sliding Window Simulation"
                     description="A sliding window protocol is a feature of packet-based data transmission protocols. Sliding window protocols are used where reliable in-order delivery of packets is required, such as in the data link layer (OSI layer 2) as well as in the Transmission Control Protocol (TCP)
                         In this project we have shown following Simulation for the same."
                     link1="Go Back N"
                     link2="Selective Repeat"
                     redirect="/concept"
-                    link="Concept" />
+                    link="Concept" /> */}
+
+                <Box
+                    title="Stop And Wait"
+                    description="The Stop and Wait ARQ protocol sends a data frame and then waits for an acknowledgment (ACK) from the receiver. The ACK indicates that the receiver successfully received the data frame. After receiving the ACK from the receiver, the sender delivers the next data frame. So there is a stop before the next data frame is transferred, hence it is known as the Stop and Wait ARQ protocol."
+                    flag="none"
+                    redirect="/stop-wait"
+                    link="Simulation" />
+
 
                 <Box 
                     title="Go Back N"

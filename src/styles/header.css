@@ -1,7 +1,7 @@
 
 nav {
 
-    color: var(--body_color);
+    border-bottom: 1px solid black;
 
     ul {
 
@@ -9,13 +9,11 @@ nav {
         justify-content: space-between;
         align-items: center;
         height: 80px;
-        
 
         h1 {
             font-size: 32px;
 
             a {
-
                 color: var(--body_color);
             }
         }
@@ -25,11 +23,17 @@ nav {
             display: flex;
             gap: 30px;
             
-
             a {
-
-                color: var(--body_color);
+                color: #7e7e7e;
                 font-size: 20px;
+            }
+
+            a:hover {
+                color: var(--body_color);
+            }
+    
+            a.active {
+                color: var(--body_color);
             }
             
         }
