@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <title>Game</title>
+
+  <style>
+      body { margin: 0; padding: 0; overflow: hidden; background: white; font-family: "Inter"; }
+      canvas { display: block; margin: auto; background: none; }
+      .emscripten_border {
+        font-size: "Poppins" sans-serif;
+        font-size: 18px;
+        margin-top: 50px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+
+      .legend {
+        width: 20%;
+        margin-top: 50px;
+      }
+
+      .canvas-border {
+        border: 2px solid black;
+      }
+
+      .simulation-info {
+        height: 370px;
+        margin-top: 140px;
+        margin-right: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      p b {
+        font-size: 20px;
+      }
+
+  </style>
+</head>
+<body>
+  <div class="emscripten_border">
+
+    <div class="legend">
+      <p><b>Start:</b> Sends new data packet</p>
+      <p><b>Kill Packet/Ack:</b>Simulate a loss of Packet/Ack, Select a moving packet/ack then click this.</p>
+      <p><b>Pause:</b> To pause Simulation (Helpfull in Killing pkt/ack)</p>
+      <p><b>Reset:</b> Resets Simulation</p>
+    </div>
+
+    <div class="canvas-border">
+      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
+    </div>
+
+    <div class="simulation-info">
+      <div class="top-text">
+        <p><b>Sender</b></p>
+        <p>Send Window Size = 5</p>
+        <p>Timeout = 10s</p>
+      </div>
+
+      <div class="bottom-text">
+        <p><b>Receiver</b></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var canvasElement = document.getElementById("canvas");
+    var Module = {
+      print(...e) {
+        console.log(...e);
+      },
+      canvas: canvasElement,
+      setStatus(e) {},
+      totalDependencies: 0,
+      monitorRunDependencies(e) {}
+    };
+  </script>
+  <script async src="game.js"></script>
+</body>
+</html>
